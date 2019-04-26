@@ -31,5 +31,5 @@ build
 .env
 npm-debug.log*
 
-.vscode
+../vscode
 .idea/*

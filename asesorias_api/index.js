@@ -8,7 +8,7 @@ const logger = require('winston');
 logger.add(new logger.transports.Console());
 
 if (process.env.NODE_ENV === 'local') {
-  require('dotenv').config();
+  require('dotenv').config({path: `${basePath}/.env`});
 }
 
 const type = process.env.PROCESS_TYPE;

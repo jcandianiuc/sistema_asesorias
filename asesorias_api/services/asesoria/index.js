@@ -10,7 +10,7 @@ const logger = require('winston')
 * local modules
 */
 // const config = require(`${basePath}/config`)
-// const app = require('./appServer')
+const app = require('./appServer')
 
 const server = http.createServer(app.callback())
 
