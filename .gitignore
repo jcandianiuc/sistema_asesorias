@@ -1,0 +1,35 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# User-specific stuff
+asesorias_api/.idea/**/workspace.xml
+asesorias_api/.idea/**/tasks.xml
+asesorias_api/.idea/dictionaries
+
+# Sensitive or high-churn files
+asesorias_api/.idea/**/dataSources/
+asesorias_api/.idea/**/dataSources.ids
+asesorias_api/.idea/**/dataSources.local.xml
+asesorias_api/.idea/**/sqlDataSources.xml
+asesorias_api/.idea/**/dynamic.xml
+asesorias_api/.idea/**/uiDesigner.xml
+
+# Gradle
+asesorias_api/.idea/**/gradle.xml
+asesorias_api/.idea/**/libraries
+
+## File-based project format:
+asesorias_api/*.iws
+
+# dependencies
+asesorias_api/node_modules
+
+# production
+asesorias_api/build
+
+# misc
+asesorias_api/.DS_Store
+asesorias_api/.env
+asesorias_api/npm-debug.log*
+
+.vscode
+asesorias_api/.idea/*
