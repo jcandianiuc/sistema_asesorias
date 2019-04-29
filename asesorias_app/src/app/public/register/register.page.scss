@@ -1,0 +1,33 @@
+ion-back-button {
+    color: white;
+}
+
+ion-card-header {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    strong {
+        font-size: 20px;
+        color: rgba(123, 180, 176, 1.0);
+    }
+}
+
+ion-button {
+    margin-top: 35px;
+    color: rgb(25, 160, 160);
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block !important;
+    width: 100%;
+}
+
+.displayed {
+    margin-top: 10px;
+}
+
+ion-card {
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+    //background: transparent;
+}

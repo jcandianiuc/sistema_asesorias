@@ -1,0 +1,53 @@
+.bg {
+    //--background: url('/assets/img/unic.jpg') no-repeat cover cover fixed;
+    //--ion-background-color: rgba(123, 180, 176, 1.0);
+    ion-list {
+        background: transparent;
+    }
+    ion-card {
+        margin-block-start: 25%;
+        margin-block-end: 16px;
+        margin-bottom: 20px;
+        box-shadow: none;
+        //background: transparent;
+    }
+}
+
+ion-img {
+    //max-height: 35vh;
+    //overflow: hidden;
+    margin-top: 26%;
+    align-self: flex-end;
+}
+
+ion-card-header {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    strong {
+        font-size: 20px;
+        color: rgba(123, 180, 176, 1.0);
+    }
+}
+
+ion-button {
+    margin-top: 35px;
+    color: rgb(25, 160, 160);
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block !important;
+}
+
+a {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    color: rgba(123, 180, 176, 1.0);
+    text-align: end;
+    font-size: 15px;
+    float: right;
+}
+
+.margin {
+    margin-top: 2%;
+}

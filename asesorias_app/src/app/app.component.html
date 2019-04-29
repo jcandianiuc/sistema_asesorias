@@ -1,0 +1,35 @@
+<ion-app>
+    <ion-split-pane contentId="app-content">
+        <ion-menu id="menu1" contentId="app-content">
+            <ion-header>
+                <ion-toolbar color="secondary">
+                    <ion-title>Menú</ion-title>
+                </ion-toolbar>
+            </ion-header>
+            <!-- sidedrawer menu -->
+            <ion-content>
+                <ion-list lines="none">
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+                        <ion-buttons>
+                            <ion-item button class="item-select" (click)="navigate(p)" [class.active-item]="selectedPath === p.url">
+                                <ion-icon class="item-note" [name]="p.icon" slot="start"></ion-icon>
+                                {{ p.title }}
+                            </ion-item>
+                        </ion-buttons>
+                    </ion-menu-toggle>
+                </ion-list>
+                <ion-item-divider></ion-item-divider>
+                <ion-list lines="none">
+                    <ion-buttons>
+                        <ion-item button class="item-select" (click)="logout()">
+                            <ion-icon slot="start" name="log-out"></ion-icon>
+                            <label class="item-note">Cerrar sesión</label>
+                        </ion-item>
+                    </ion-buttons>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-router-outlet main id="app-content"></ion-router-outlet>
+    </ion-split-pane>
+</ion-app>
+<script src="cordova.js"></script>

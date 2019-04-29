@@ -1,0 +1,32 @@
+ion-card-header {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    strong {
+        font-size: 20px;
+        color: rgba(123, 180, 176, 1.0);
+    }
+}
+
+ion-card-subtitle {
+    font-style: italic;
+}
+
+.active-item {
+    border-left: 8px solid var (--ion-color-primary);
+}
+
+.portada {
+    margin-block-start: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.box {
+    box-shadow: none;
+}
+
+// ion-img {
+//     height: 50px;
+//     width: 60px;
+// }

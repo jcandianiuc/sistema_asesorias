@@ -1,0 +1,101 @@
+<ion-content padding>
+    Añadiendo: {{ passedId }}
+    <ion-item-divider>
+        <ion-col size="11">
+            <ion-card-header>
+                <ion-card-title> Crear Evento </ion-card-title>
+                <ion-card-subtitle> Tipo de disponibilidad </ion-card-subtitle>
+            </ion-card-header>
+        </ion-col>
+        <!-- Here start the card for create en event -->
+    </ion-item-divider>
+    <ion-card-subtitle> Seleccion tipo y área </ion-card-subtitle>
+    <ion-item-divider>
+        <ion-grid>
+            <ion-row justify-content-center>
+                <ion-col size="5">
+                    <ion-list lines="none">
+                        <ion-item *ngFor="let entry of form" no-padding>
+                            <ion-label>{{entry.val}}</ion-label>
+                            <ion-checkbox type="boolean" color="secondary" [(ngModel)]="entry.isChecked"></ion-checkbox>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-list lines="none">
+                        <ion-item no-padding>
+                            <ion-label> Edificio</ion-label>
+                            <ion-icon name="arrow-dropdown"></ion-icon>
+                            <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                            <!-- <ion-label> Edificio:</ion-label>
+                            <ion-item-option fill="outline" color="secondary"> LMUL
+                                <ion-icon name="arrow-dropdown"></ion-icon>
+                            </ion-item-option> -->
+                        </ion-item>
+                        <ion-item no-padding>
+                            <ion-label> Aulas</ion-label>
+                            <ion-icon name="arrow-dropdown"></ion-icon>
+                            <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-item-divider>
+    <ion-card-subtitle> Nota Específica </ion-card-subtitle>
+    <ion-item-divider>
+        <!-- Textarea in an item with a floating label -->
+        <!-- <ion-item alignSelf="center">
+            <ion-label expand="full" position="stacked">Description</ion-label>
+            <ion-textarea></ion-textarea>
+        </ion-item> -->
+        <!-- Inputs with labels -->
+        <ion-col size="11">
+            <ion-item color="light">
+                <ion-label expand="full" position="floating"> Descripción </ion-label>
+                <ion-input></ion-input>
+            </ion-item>
+        </ion-col>
+    </ion-item-divider>
+    <ion-card-subtitle> Estimación de tiempo HH:mm</ion-card-subtitle>
+    <ion-grid>
+        <ion-row justify-content-center>
+            <ion-col>
+                <!-- <ion-item no-padding lines="none">
+                        <ion-item-option color="secondary">Inicio
+                            <ion-icon name="arrow-dropdown"></ion-icon>
+                        </ion-item-option>
+                        <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                    </ion-item> -->
+                <ion-item lines="none">
+                    <ion-label> Inicio</ion-label>
+                    <ion-icon name="arrow-dropdown"></ion-icon>
+                    <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label>Fin</ion-label>
+                    <ion-icon name="arrow-dropdown"></ion-icon>
+                    <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-card-content color="white">
+        <ion-grid>
+            <ion-row>
+                <ion-col size="8" offset="2">
+                    <ion-button expand="block" color="dark" (click)="createDisp()"> Aceptar </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card-content>
+</ion-content>
+<ion-footer>
+    <ion-toolbar color="secondary">
+        <ion-button expand="full" fill="clear" color="light" (click)="closeModal()">
+            <strong> CERRAR VENTANA </strong>
+        </ion-button>
+    </ion-toolbar>
+</ion-footer>

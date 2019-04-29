@@ -1,0 +1,96 @@
+{
+    "items": [{
+            "name": "Licenciaturas",
+            "open": false,
+            "children": [{
+                    "name": "Innovación Empresarial",
+                    "information": "Edificio A",
+                    "Coordinador": "Elena Marco"
+                },
+                {
+                    "name": "Gastronomía",
+                    "information": "Edificio c",
+                    "Coordinador": "Omar Dante"
+                },
+                {
+                    "name": "Negocios Internacionales",
+                    "information": "Edificio A",
+                    "Coordinador": "Abelardo Cázares"
+                },
+                {
+                    "name": "Turismo sustentable y Gestión Hotelera",
+                    "information": "Edificio D",
+                    "Coordinador": "Bladimir Salazar"
+                },
+                {
+                    "name": "Turismo Alternativo y Gestión del Patrimonio",
+                    "information": "Edificio D",
+                    "Coordinador": "Bladimir Salazar"
+                }
+
+            ]
+        },
+        {
+            "name": "Ingenierías",
+            "open": false,
+            "children": [{
+                    "name": "Industrial",
+                    "information": "Edificio Ingenierías",
+                    "Coordinador": "Elena Marco"
+                },
+                {
+                    "name": "Datos e Inteligencia Organizacional",
+                    "information": "Edificio B",
+                    "Coordinador": "Omar Dante"
+                },
+                {
+                    "name": "Logística y Cadena de Suministro",
+                    "information": "Edificio C",
+                    "Coordinador": "Abelardo Cázares"
+                },
+                {
+                    "name": "Ambiental",
+                    "information": "Edificio C",
+                    "Coordinador": "Bladimir Salazar"
+                }
+            ]
+
+        },
+        {
+            "name": "Maestrías",
+            "open": false,
+            "children": [{
+                    "name": "Visualización de la información ",
+                    "information": "Edificio Ingenierías",
+                    "Coordinador": "Elena Marco"
+                },
+                {
+                    "name": "Innovación y Gestión del Aprendizaje",
+                    "information": "Edificio B",
+                    "Coordinador": "Omar Dante"
+                },
+                {
+                    "name": "Logística y Cadena de Suministro",
+                    "information": "Edificio C",
+                    "Coordinador": "Abelardo Cázares"
+                },
+                {
+                    "name": "Negocios Electrónicos",
+                    "information": "Edificio C",
+                    "Coordinador": "Bladimir Salazar"
+                },
+                {
+                    "name": "Planeación turística y Sustentables",
+                    "information": "Edificio A",
+                    "Coordinador": "Alberto Krauze"
+                },
+                {
+                    "name": "Urbanismo Sustentable y Bioclimática",
+                    "information": "Edificio A",
+                    "Coordinador": "Frida Ibarra"
+                }
+            ]
+
+        }
+    ]
+}
