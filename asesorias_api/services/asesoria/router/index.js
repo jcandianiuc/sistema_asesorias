@@ -1,11 +1,13 @@
 const Router = require('koa-router');
 
 const docente = require('./docente');
+const disponibilidad = require('./disponibilidad');
 
 // Se añaden los routers por prefijo
 const router = new Router();
 
 router.use(docente.routes(), docente.allowedMethods());
+router.use(disponibilidad.routes(), disponibilidad.allowedMethods());
 
 
 // End points no agrupables

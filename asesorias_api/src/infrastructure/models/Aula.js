@@ -1,7 +1,7 @@
 const {basePath} = global;
 
 const { EntitySchema } = require('typeorm');
-const { Aula: AulaModel } = require(`${basePath}/src/domain/`);
+const { Aula: AulaModel } = require(`${basePath}/src/domain/models`);
 
 const Aula = new EntitySchema({
   name: 'Aula',

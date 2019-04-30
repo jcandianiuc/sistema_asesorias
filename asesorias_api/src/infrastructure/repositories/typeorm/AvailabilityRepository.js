@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 const { basePath } = global;
 const { polyfill } = require(`${basePath}/helpers`);
-const { Disponibilidad } = require(`${basePath}/src/inote/domain/models`);
+const { Disponibilidad } = require(`${basePath}/src/domain/models`);
 
 /**
  * Valida que exista la id de la disponibilidad, de esta forma se sabe que
@@ -30,11 +30,11 @@ function assertThatDisponibilidadIsNotEmpty(disponibilidad) {
 }
 
 /**
- * Valida que la uuid recibida tenga un formato correcto
- * @param {string} uuid
+ * Valida que la id recibida tenga un formato correcto
+ * @param {string} id
  */
-function assertThatUuidIsValid(uuid) {
-  const joiError = Joi.string().guid().validate(uuid).error;
+function assertThatIdIsValid(id) {
+  const joiError = Joi.number().min(1).validate(id).error;
 
   if (polyfill.isset(joiError)) {
     joiError.code = 400;
@@ -78,12 +78,12 @@ class AvailabilityRepository {
   }
 
   /**
-   * Método encargado de encontrar una Disponibilidad por su uuid
-   * @param {string} uuid
+   * Método encargado de encontrar una Disponibilidad por su id
+   * @param {string} id
    */
-  async byUuidOrFail(uuid) {
-    assertThatUuidIsValid(uuid);
-    const res = await this.find({ uuid });
+  async byUuidOrFail(id) {
+    assertThatIdIsValid(id);
+    const res = await this.find({ id });
     assertThatDisponibilidadIsNotEmpty(res[0]);
 
     return res[0];
@@ -121,7 +121,7 @@ class AvailabilityRepository {
    * @param {Object} params
    */
   find(params = {}, limit = {}) {
-    return this.repository.find({ where: { ...params }, relations: ['nidInterconsulta'], ...limit });
+    return this.repository.find({ where: { ...params }, ...limit });
   }
 }
 
