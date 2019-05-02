@@ -14,22 +14,22 @@ function assertThatIdIsValid(id) {
   }
 }
 
-class ViewDisponibilidad {
+class ViewAlumno {
   /**
    * inicializa el repositorio se usara
-   * @param {AvailabilityRepository} repository 
+   * @param {AlumnoRepository} repository 
    */
   constructor(repository) {
     this.repository = repository;
   }
 
   /**
-   * Método que se encarga de solicitar la disponibilidad
+   * Método que se encarga de solicitar un alumno
    * por su ID, validando que el parametro tenga el formato adecuado
    * 
    * @throws {Error}
-   * @param {string} command - Identificador de disponibilidad
-   * @returns {Disponibilidad}
+   * @param {string} command - Identificador del alumno
+   * @returns {Alumno}
    */
   async process(command) {
     const { id } = command;
@@ -38,4 +38,4 @@ class ViewDisponibilidad {
   }
 }
 
-module.exports = ViewDisponibilidad;
+module.exports = ViewAlumno;
