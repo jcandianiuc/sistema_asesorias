@@ -5,6 +5,7 @@ class Docente {
     this.uuid = data.uuid;
     this.createdBy = data.createdBy;
     this.createdAt = data.createdAt;
+    this.usuario = data.usuario;
   }
 
 }
