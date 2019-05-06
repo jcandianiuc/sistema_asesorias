@@ -11,7 +11,7 @@ const { Alumno } = require(`${basePath}/src/domain/models`);
  */
 function assertThatAlumnoIsUpdatable(alumno) {
   if (polyfill.empty(alumno.id)) {
-    const err = new Error('No se puede actualizar la alumno');
+    const err = new Error('No se puede actualizar el alumno');
     err.code = 500;
     throw err;
   }
@@ -23,7 +23,7 @@ function assertThatAlumnoIsUpdatable(alumno) {
  */
 function assertThatAlumnoIsNotEmpty(alumno) {
   if (polyfill.empty(alumno)) {
-    const err = new Error('No se encontró la alumno');
+    const err = new Error('No se encontró el alumno');
     err.code = 404;
     throw err;
   }
@@ -74,23 +74,37 @@ class AlumnoRepository {
    */
   get(filters) {
     const [skip, take] = filters.limit;
-    return this.find({ ...filters }, { skip, take });
+
+    const mySearchPromise = this.find({ ...filters }, { skip, take });
+
+    return new Promise(async (resolve, reject) => {
+      if (!(mySearchPromise instanceof Promise)) {
+        reject(new Error('No se pudo realizar la petición'));
+      }
+
+      const [items, total] = await mySearchPromise;
+
+      resolve({
+        items,
+        total,
+      });
+    });
   }
 
   /**
    * Método encargado de encontrar una Alumno por su id
-   * @param {string} id
+   * @param {string|number} id
    */
   async byUuidOrFail(id) {
     assertThatIdIsValid(id);
-    const res = await this.find({ id });
-    assertThatAlumnoIsNotEmpty(res[0]);
+    const res = (await this.find({ id }))[0];
+    assertThatAlumnoIsNotEmpty(res);
 
-    return res[0];
+    return res;
   }
 
   /**
-   * Método encargado de actualizar una alumno
+   * Método encargado de actualizar un alumno
    * @param {Alumno} alumno
    */
   async update(alumno) {
@@ -99,17 +113,7 @@ class AlumnoRepository {
   }
 
   /**
-   * Método encargado de obtener el conteo de objetos.
-   * @param {Object} filters
-   */
-  async count(filters = {}) {
-    const [skip, take] = filters.limit;
-    const count = await this.repository.count({ where: { ...filters }, skip, take });
-    return count;
-  }
-
-  /**
-   * Método encargado de persistir la alumno en la base de datos.
+   * Método encargado de persistir el alumno en la base de datos.
    * @param {Alumno} item
    */
   persist(item) {
@@ -121,7 +125,7 @@ class AlumnoRepository {
    * @param {Object} params
    */
   find(params = {}, limit = {}) {
-    return this.repository.find({ where: { ...params }, ...limit });
+    return this.repository.findAndCount({ where: { ...params }, ...limit });
   }
 }
 
