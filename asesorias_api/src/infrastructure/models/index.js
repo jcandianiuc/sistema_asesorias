@@ -1,4 +1,6 @@
 const Docente = require('./Docente');
+const User = require('./User');
+const Alumno = require('./Alumno');
 const Aula = require('./Aula');
 const Disponibilidad = require('./Disponibilidad');
 const Match = require('./Match');
@@ -7,5 +9,7 @@ module.exports = {
   Docente,
   Aula,
   Disponibilidad,
-  Match
+  Match,
+  User,
+  Alumno,
 }

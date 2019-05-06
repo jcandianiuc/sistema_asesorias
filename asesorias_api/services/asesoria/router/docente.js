@@ -9,6 +9,7 @@ const { DocenteRepository } = require(`${basePath}/src/infrastructure/repositori
 const {
   CreateDocente,
   ViewDocente,
+  FetchDocentes,
 } = require(`${basePath}/src/application/user`);
 
 function getJoiFlash(error) {
@@ -37,6 +38,40 @@ const router = new Router({
 });
 
 router.get('/', async (ctx, next) => {
+  let response;
+
+  try {
+    const repository = new DocenteRepository(db);
+    const service = new FetchDocentes(repository);
+
+    const data = {
+      ...ctx.request.body,
+      ...ctx.params,
+      ...ctx.query,
+    };
+
+    entity = await service.process(data);
+
+    code = 200;
+    response = {
+      error: 0,
+      flash: 'Ok',
+      data: entity,
+      summary: {
+        totalCount: entity.total,
+      },
+    };
+  } catch (err) {
+    code = 404;
+    response = makeErrorResponse(err);
+  } finally {
+    ctx.status = code;
+    ctx.body = response;
+    next();
+  }
+});
+
+router.get('/:id', async (ctx, next) => {
   let response;
 
   try {

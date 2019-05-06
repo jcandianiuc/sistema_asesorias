@@ -28,13 +28,13 @@ const Alumno = new EntitySchema({
       name: 'created_by',
     },
   },
-  relations: {
-    user: {
-      type: 'one-to-one',
-      target: 'User',
-      joinColumn: true
-    }
-  }
+  // relations: {
+  //   user: {
+  //     type: 'one-to-one',
+  //     target: 'User',
+  //     joinColumn: true
+  //   }
+  // }
 });
 
 module.exports = Alumno;

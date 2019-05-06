@@ -1,5 +1,5 @@
-const FetchAula = require('./FetchAula');
+const FetchAulas = require('./FetchAulas');
 
 module.exports = {
-  FetchAula,
+  FetchAulas,
 }

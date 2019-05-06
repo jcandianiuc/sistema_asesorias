@@ -5,7 +5,7 @@ const logger = require('winston');
 const { basePath } = global;
 const { TypeOrmSqlClient: db } = require(`${basePath}/config/client`);
 
-const { CreateDisponibilidad, ViewDisponibilidad, FetchAlumnos } = require(`${basePath}/src/application/availability`);
+const { CreateDisponibilidad, ViewDisponibilidad, FetchAlumnos } = require(`${basePath}/src/application/user`);
 const { AlumnoRepository } = require(`${basePath}/src/infrastructure/repositories/typeorm`);
 
 const { polyfill } = require(`${basePath}/helpers`);
@@ -54,9 +54,9 @@ router.get('/', async (ctx, next) => {
     response = {
       error: 0,
       flash: 'Ok',
-      data: collection.items,
+      data: collection,
       summary: {
-        totalCount: entity.total,
+        totalCount: collection.total,
       },
     };
   } catch (err) {

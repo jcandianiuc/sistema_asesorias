@@ -13,9 +13,10 @@ const Docente = new EntitySchema({
       primary: true,
       generated: true,
     },
-    uuid: {
+    idUsuario: {
       type: String,
       nullable: false,
+      name: 'id_usuario',
     },
     createdAt: {
       type: String,
@@ -28,6 +29,13 @@ const Docente = new EntitySchema({
       name: 'created_by',
     },
   },
+  // relations: {
+  //   usuario: {
+  //     type: 'one-to-one',
+  //     target: 'User',
+  //     joinColumn: true
+  //   }
+  // }
 });
 
 module.exports = Docente;

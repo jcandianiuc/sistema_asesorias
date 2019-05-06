@@ -56,13 +56,13 @@ const User = new EntitySchema({
       name: 'created_by',
     },
   },
-  relations: {
-    authAssignment: {
-      type: 'one-to-one',
-      target: 'AuthAssignment',
-      joinColumn: true
-    }
-  }
+  // relations: {
+  //   authAssignment: {
+  //     type: 'one-to-one',
+  //     target: 'AuthAssignment',
+  //     joinColumn: true
+  //   }
+  // }
 });
 
 module.exports = User;
