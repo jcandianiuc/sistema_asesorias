@@ -5,7 +5,7 @@ class User {
       this.matricula = data.matricula;
       this.createdBy = data.createdBy;
       this.createdAt = data.createdAt;
-      this.usuario = data.usuario;
+      this.authAssignment = data.authAssignment;
     }
   
     addAuditData(createdAt, createdBy) {
