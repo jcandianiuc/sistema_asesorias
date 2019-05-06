@@ -18,6 +18,11 @@ const Aula = new EntitySchema({
       type: String,
       nullable: false,
     },
+    planta: {
+      type: 'enum',
+      enum: ['Baja', 'Media', 'Alta'],
+      nullable: false,
+    },
     noAsignacion: {
       type: String,
       nullable: false,

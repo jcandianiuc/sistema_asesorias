@@ -9,6 +9,10 @@ class Alumno {
     this.usuario = data.usuario;
   }
 
+  addMatricula(matricula) {
+    this.matricula = matricula;
+  }
+
   addAuditData(createdAt, createdBy) {
     this.createdAt = createdAt;
     this.createdBy = createdBy;
