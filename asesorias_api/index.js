@@ -19,6 +19,6 @@ if (type === 'asesoria') {
   require('./services/asesoria');
 } else {
   throw new Error(`${type} is an unsupported process type. 
-    Use one of: 'admission', 'inote'
+    Use one of: 'asesoria'
 `);
 }
