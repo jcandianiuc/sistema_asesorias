@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AutenticationService } from '../../services/autentication.service';
 import { NavController, MenuController } from '@ionic/angular';
+import { UserService } from '../../services/user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -8,8 +10,9 @@ import { NavController, MenuController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  results: Observable<any>;
 
-  constructor(public menuCtrl: MenuController, private authService: AutenticationService, private nav: NavController) {}
+  constructor(public menuCtrl: MenuController, private authService: AutenticationService, private nav: NavController, private userService: UserService) {}
 
   ngOnInit() {
 
@@ -22,5 +25,13 @@ export class LoginPage implements OnInit {
 
   ionViewDidLeave() {
     // alert('Adios!');
+  }
+
+  initApi() {
+    this.results = this.userService.initApi();
+
+    this.results.subscribe((res) => {
+      console.log(res);
+    });
   }
 }
