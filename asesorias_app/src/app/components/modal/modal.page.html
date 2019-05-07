@@ -9,10 +9,10 @@
         </ion-col>
         <!-- Here start the card for create en event -->
     </ion-item-divider>
-    <ion-card-subtitle> Seleccion tipo y área </ion-card-subtitle>
+    <ion-card-subtitle> Seleccionar aula </ion-card-subtitle>
     <ion-item-divider>
         <ion-grid>
-            <ion-row justify-content-center>
+            <!-- <ion-row justify-content-center>
                 <ion-col size="5">
                     <ion-list lines="none">
                         <ion-item *ngFor="let entry of form" no-padding>
@@ -27,10 +27,6 @@
                             <ion-label> Edificio</ion-label>
                             <ion-icon name="arrow-dropdown"></ion-icon>
                             <ion-datetime displayFormat="HH:mm"></ion-datetime>
-                            <!-- <ion-label> Edificio:</ion-label>
-                            <ion-item-option fill="outline" color="secondary"> LMUL
-                                <ion-icon name="arrow-dropdown"></ion-icon>
-                            </ion-item-option> -->
                         </ion-item>
                         <ion-item no-padding>
                             <ion-label> Aulas</ion-label>
@@ -38,6 +34,18 @@
                             <ion-datetime displayFormat="HH:mm"></ion-datetime>
                         </ion-item>
                     </ion-list>
+                </ion-col>
+            </ion-row> -->
+            <ion-row justify-content-center>
+                <ion-col>
+                    <ion-item>
+                        <ion-label>Aulas</ion-label>
+                        <ion-select>
+                            <ion-select-option *ngFor="let classroom of aulas">
+                                {{classroom['edificio'] + ' ' + classroom['noAsignacion']}}
+                            </ion-select-option>
+                        </ion-select>
+                    </ion-item>
                 </ion-col>
             </ion-row>
         </ion-grid>

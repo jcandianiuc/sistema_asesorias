@@ -7,11 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  url = 'http://127.0.0.1:3011/';
+  url = 'http://localhost:3011/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   initApi() {
-    return this.http.get(`${this.url}`);
+    this.http.get(this.url).subscribe((response) => {
+      console.log(response);
+    });
   }
 }

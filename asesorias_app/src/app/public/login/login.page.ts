@@ -9,29 +9,25 @@ import { Observable } from 'rxjs';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
-  results: Observable<any>;
+  private username: string;
+  private password: string;
 
   constructor(public menuCtrl: MenuController, private authService: AutenticationService, private nav: NavController, private userService: UserService) {}
-
   ngOnInit() {
 
   }
 
   login() {
-    // alert('Hola!'); //Este método muentra un cuadro de alerta con mensaje específico
-    this.authService.login();
+    const { username, password } = this;
+    /* this.authService.login(username, password).subscribe((res) => {
+      console.log(res);
+    }); */
+    this.authService.login(username, password);
   }
 
   ionViewDidLeave() {
     // alert('Adios!');
-  }
-
-  initApi() {
-    this.results = this.userService.initApi();
-
-    this.results.subscribe((res) => {
-      console.log(res);
-    });
   }
 }
