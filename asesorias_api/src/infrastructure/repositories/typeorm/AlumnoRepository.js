@@ -95,12 +95,12 @@ class AlumnoRepository {
    * Método encargado de encontrar una Alumno por su id
    * @param {string|number} id
    */
-  async byUuidOrFail(id) {
+  async byUuidOrFail(id, relations = []) {
     assertThatIdIsValid(id);
-    const res = (await this.find({ id }))[0];
-    assertThatAlumnoIsNotEmpty(res);
+    const item = (await this.find({ id }, null, relations))[0][0];
+    assertThatAlumnoIsNotEmpty(item);
 
-    return res;
+    return item;
   }
 
   /**
@@ -124,8 +124,8 @@ class AlumnoRepository {
    * Método encargado de buscar alumnos en la base de datos.
    * @param {Object} params
    */
-  find(params = {}, limit = {}) {
-    return this.repository.findAndCount({ where: { ...params }, ...limit });
+  find(params = {}, limit = {}, relations = []) {
+    return this.repository.findAndCount({ where: { ...params }, ...limit, relations });
   }
 }
 

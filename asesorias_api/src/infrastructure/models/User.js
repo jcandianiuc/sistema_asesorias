@@ -45,16 +45,6 @@ const User = new EntitySchema({
       type: String,
       nullable: false,
     },
-    createdAt: {
-      type: String,
-      nullable: false,
-      name: 'created_at',
-    },
-    createdBy: {
-      type: String,
-      nullable: false,
-      name: 'created_by',
-    },
   },
   // relations: {
   //   authAssignment: {

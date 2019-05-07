@@ -13,6 +13,11 @@ const Alumno = new EntitySchema({
       primary: true,
       generated: true,
     },
+    idUsuario: {
+      type: Number,
+      nullable: false,
+      name: 'id_usuario'
+    },
     matricula: {
       type: String,
       nullable: false,
@@ -28,13 +33,15 @@ const Alumno = new EntitySchema({
       name: 'created_by',
     },
   },
-  // relations: {
-  //   user: {
-  //     type: 'one-to-one',
-  //     target: 'User',
-  //     joinColumn: true
-  //   }
-  // }
+  relations: {
+    abstract: {
+      type: 'one-to-one',
+      target: 'User',
+      joinColumn: {
+        name: 'id_usuario'
+      }
+    }
+  }
 });
 
 module.exports = Alumno;

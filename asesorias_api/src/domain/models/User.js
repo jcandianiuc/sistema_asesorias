@@ -10,8 +10,6 @@ class User {
     this.telefono = data.telefono;
     this.sexo = data.sexo;
     this.engine = data.engine;
-    this.createdBy = data.createdBy;
-    this.createdAt = data.createdAt;
     this.authAssignment = data.authAssignment;
   }
 

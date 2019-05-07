@@ -5,10 +5,10 @@ const logger = require('winston');
 const { basePath } = global;
 const { TypeOrmSqlClient: db } = require(`${basePath}/config/client`);
 
-const { CreateDisponibilidad, ViewDisponibilidad, FetchAlumnos } = require(`${basePath}/src/application/user`);
+const { FetchAlumnos, ViewAlumno } = require(`${basePath}/src/application/user`);
 const { AlumnoRepository } = require(`${basePath}/src/infrastructure/repositories/typeorm`);
 
-const { polyfill } = require(`${basePath}/helpers`);
+const { polyfill, filterAdapter } = require(`${basePath}/helpers`);
 
 function getJoiFlash(error) {
   let msg = '';
@@ -42,19 +42,15 @@ router.get('/', async (ctx, next) => {
     const repository = new AlumnoRepository(db);
     const service = new FetchAlumnos(repository);
 
-    const data = {
-      ...ctx.request.body,
-      ...ctx.params,
-      ...ctx.query,
-    };
+    const filters = filterAdapter.adapt(ctx.query);
 
-    const collection = await service.process(data);
+    const collection = await service.process(filters);
 
     code = 200;
     response = {
       error: 0,
       flash: 'Ok',
-      data: collection,
+      data: collection.items,
       summary: {
         totalCount: collection.total,
       },
@@ -76,22 +72,18 @@ router.get('/:id', async (ctx, next) => {
     const repository = new AlumnoRepository(db);
     const service = new ViewAlumno(repository);
 
-    const data = {
-      ...ctx.request.body,
+    const filters = filterAdapter.adapt({
       ...ctx.params,
       ...ctx.query,
-    };
+    });
 
-    entity = await service.process(data);
+    entity = await service.process(filters);
 
     code = 200;
     response = {
       error: 0,
       flash: 'Ok',
       data: entity,
-      summary: {
-        totalCount: entity.total,
-      },
     };
   } catch (err) {
     code = 404;

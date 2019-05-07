@@ -6,7 +6,7 @@ class Alumno {
     this.matricula = data.matricula;
     this.createdBy = data.createdBy;
     this.createdAt = data.createdAt;
-    this.usuario = data.usuario;
+    this.abstract = data.abstract;
   }
 
   addMatricula(matricula) {
