@@ -40,8 +40,9 @@ const Alumno = new EntitySchema({
       cascade: true,
       joinColumn: {
         name: 'id_usuario'
-      }
-    }
+      },
+      inverseSide:'Alumno'
+    },
   }
 });
 

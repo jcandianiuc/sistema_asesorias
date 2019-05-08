@@ -5,10 +5,11 @@ const logger = require('winston');
 const { basePath } = global;
 const { TypeOrmSqlClient: db } = require(`${basePath}/config/client`);
 
-const { FetchAlumnos, ViewAlumno } = require(`${basePath}/src/application/user`);
+const { FetchAlumnos, ViewAlumno, CreateAlumno } = require(`${basePath}/src/application/user`);
 const { AlumnoRepository } = require(`${basePath}/src/infrastructure/repositories/typeorm`);
 
 const { polyfill, filterAdapter } = require(`${basePath}/helpers`);
+const { AffiliationService } = require(`${basePath}/src/domain`);
 
 function getJoiFlash(error) {
   let msg = '';
@@ -106,7 +107,8 @@ router.post('/', koaBody(), async function (ctx, next) {
 
   try {
     const repository = new AlumnoRepository(db);
-    const service = new CreateAlumno(repository);
+    const affiliationService = new AffiliationService;
+    const service = new CreateAlumno(repository, affiliationService);
     const disponbilidad = await service.process(data);
 
     code = 201;

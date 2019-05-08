@@ -1,4 +1,5 @@
 const CreateDocente = require('./CreateDocente');
+const CreateAlumno = require('./CreateAlumno');
 const ViewDocente = require('./ViewDocente');
 const FetchDocentes = require('./FetchDocentes');
 const FetchAlumnos = require('./FetchAlumnos');
@@ -12,4 +13,5 @@ module.exports = {
   FetchAlumnos,
   ViewAlumno,
   ViewUser,
+  CreateAlumno,
 }

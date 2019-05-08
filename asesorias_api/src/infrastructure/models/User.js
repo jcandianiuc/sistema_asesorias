@@ -63,7 +63,8 @@ const User = new EntitySchema({
       joinColumn: {
         name: 'id',
         referencedColumnName: 'userId',
-      }
+      },
+      inverseSide:'User'
     }
   }
 });

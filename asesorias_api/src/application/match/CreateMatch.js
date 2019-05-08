@@ -1,8 +1,7 @@
 const {basePath} = global;
 const { Match } = require(`${basePath}/src/domain/models`);
 
-class CreateDisponibilidad {
-
+class CreateMatch {
   /**
    * @param {MatchRepository} repository
    */
@@ -10,14 +9,14 @@ class CreateDisponibilidad {
     this.repository = repository;
   }
 
-  process(data) {
+  process(command) {
     const entity = new Match
-    entity.addLink(data.idAlumno, data.idDocente, data.idAula);
-    entity.addDate(data.fecha, data.horas, data.extras);
-    entity.addAuditData(data.createdAt, data.createdBy);
+    entity.addLink(command.idAlumno, command.idDocente, command.idAula);
+    entity.addDate(command.fecha, command.horas, command.extras);
+    entity.addAuditData(command.createdAt, command.createdBy);
 
     return this.repository.create(entity);
   }
 }
 
-module.exports = CreateDisponibilidad;
+module.exports = CreateMatch;

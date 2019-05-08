@@ -4,6 +4,7 @@ const Alumno = require('./Alumno');
 const Aula = require('./Aula');
 const Disponibilidad = require('./Disponibilidad');
 const Match = require('./Match');
+const AuthAssignment = require('./AuthAssignment');
 
 module.exports = {
   Docente,
@@ -12,4 +13,5 @@ module.exports = {
   Match,
   User,
   Alumno,
+  AuthAssignment,
 }

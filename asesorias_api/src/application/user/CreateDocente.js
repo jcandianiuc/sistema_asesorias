@@ -12,16 +12,16 @@ class CreateDocente {
   }
 
   process(command) {
-    const { data, abstract } = command;
+    const { abstract } = command;
     const entity = new Docente;
     const user = new User;
 
-    entity.addMatricula(data.matricula);
-    entity.addAuditData(data.createdAt, data.createdBy);
+    entity.addAuditData(command.createdAt, command.createdBy);
 
     user.addName(abstract.nombre, abstract.paterno, abstract.materno);
     user.addBasics(abstract.email, abstract.birthday, abstract.telefono, abstract.sexo);
     user.addAuditData(abstract.createdAt, abstract.createdBy);
+    user.setPassword(abstract.password);
 
     this.service({user, role:'Docente'});
     entity.usuario = user;

@@ -1,18 +1,12 @@
 const Router = require('koa-router');
 const koaBody = require('koa-body');
+const Joi = require('joi');
 const logger = require('winston');
-
 const { basePath } = global;
 const { TypeOrmSqlClient: db } = require(`${basePath}/config/client`);
 
-const { DocenteRepository } = require(`${basePath}/src/infrastructure/repositories/typeorm`);
-const {
-  CreateDocente,
-  ViewDocente,
-  FetchDocentes,
-} = require(`${basePath}/src/application/user`);
-
-const { AffiliationService } = require(`${basePath}/src/domain`);
+const { CreateMatch, ViewMatch, FetchMatches } = require(`${basePath}/src/application/match`);
+const { MatchRepository } = require(`${basePath}/src/infrastructure/repositories/typeorm`);
 
 const { polyfill, filterAdapter } = require(`${basePath}/helpers`);
 
@@ -38,23 +32,23 @@ function makeErrorResponse(err) {
 }
 
 const router = new Router({
-  prefix: '/docentes',
+  prefix: '/matches'
 });
 
 router.get('/', async (ctx, next) => {
   let response;
 
   try {
-    const repository = new DocenteRepository(db);
-    const service = new FetchDocentes(repository);
+    const repository = new MatchRepository(db);
+    const service = new FetchMatches(repository);
 
-    const data = {
+    const command = {
       ...ctx.request.body,
       ...ctx.params,
       ...filterAdapter.adapt(ctx.query)
     };
 
-    entity = await service.process(data);
+    entity = await service.process(command);
 
     code = 200;
     response = {
@@ -79,8 +73,8 @@ router.get('/:id', async (ctx, next) => {
   let response;
 
   try {
-    const repository = new DocenteRepository(db);
-    const service = new ViewDocente(repository);
+    const repository = new MatchRepository(db);
+    const service = new ViewMatch(repository);
 
     const data = {
       ...ctx.request.body,
@@ -112,7 +106,7 @@ router.get('/:id', async (ctx, next) => {
 router.post('/', koaBody(), async function (ctx, next) {
   let response;
 
-  const command = {
+  const data = {
     ...ctx.request.body,
     ...ctx.params,
     ...ctx.query,
@@ -120,20 +114,19 @@ router.post('/', koaBody(), async function (ctx, next) {
 
   try {
     // TODO: Agregar validadores
-    const repository = new DocenteRepository(db);
-    const affiliationService = new AffiliationService;
-    const service = new CreateDocente(repository, affiliationService);
-    const docente = await service.process(command);
+    const repository = new MatchRepository(db);
+    const service = new CreateMatch(repository);
+    const disponbilidad = await service.process(data);
 
     code = 201;
     response = {
       error: 0,
       flash: 'Successful!',
       data: {
-        id: docente.id || null,
+        id: disponbilidad.id || null,
       },
     };
-    code = docente ? 201 : 400;
+    code = disponbilidad ? 201 : 400;
   } catch (err) {
     code = 404;
     response = makeErrorResponse(err);
