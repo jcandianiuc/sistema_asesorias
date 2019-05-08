@@ -8,6 +8,8 @@ const { TypeOrmSqlClient: db } = require(`${basePath}/config/client`);
 const { FetchAulas } = require(`${basePath}/src/application/resources`);
 const { AulaRepository } = require(`${basePath}/src/infrastructure/repositories/typeorm`);
 
+const { filterAdapter } = require(`${basePath}/helpers`);
+
 function getJoiFlash(error) {
   let msg = '';
 
@@ -43,7 +45,7 @@ router.get('/', async (ctx, next) => {
     const data = {
       ...ctx.request.body,
       ...ctx.params,
-      ...ctx.query,
+      ...filterAdapter.adapt(ctx.query)
     };
 
     entity = await service.process(data);

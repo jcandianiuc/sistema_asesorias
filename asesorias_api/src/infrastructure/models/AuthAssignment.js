@@ -15,7 +15,7 @@ const AuthAssignment = new EntitySchema({
       name: 'item_name',
     },
     userId: {
-      type: String,
+      type: 'integer',
       nullable: false,
       name: 'user_id',
     },

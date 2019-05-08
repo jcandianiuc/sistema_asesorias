@@ -74,7 +74,20 @@ class DocenteRepository {
    */
   get(filters) {
     const [skip, take] = filters.limit;
-    return this.find({ ...filters }, { skip, take });
+    const promise = this.find({ ...filters }, { skip, take }, ['abstract']);
+
+    return new Promise(async (resolve, reject) => {
+      if (!(promise instanceof Promise)) {
+        reject(new Error('No se pudo realizar la petición'));
+      }
+
+      const [items, total] = await promise;
+
+      resolve({
+        items,
+        total,
+      });
+    });
   }
 
   /**
@@ -83,10 +96,10 @@ class DocenteRepository {
    */
   async byUuidOrFail(id) {
     assertThatIdIsValid(id);
-    const res = await this.find({ id });
-    assertThatDocenteIsNotEmpty(res[0]);
+    const item = await this.find({ id }, null, ['abstract', 'abstract.role'])[0][0];
+    assertThatDocenteIsNotEmpty(item);
 
-    return res[0];
+    return item;
   }
 
   /**
@@ -120,8 +133,8 @@ class DocenteRepository {
    * Método encargado de buscar docentes en la base de datos.
    * @param {Object} params
    */
-  find(params = {}, limit = {}) {
-    return this.repository.find({ where: { ...params }, ...limit });
+  find(params = {}, limit = {}, relations = []) {
+    return this.repository.find({ where: { ...params }, ...limit, relations });
   }
 }
 

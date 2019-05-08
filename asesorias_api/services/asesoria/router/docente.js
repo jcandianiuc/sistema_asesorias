@@ -47,7 +47,7 @@ router.get('/', async (ctx, next) => {
     const data = {
       ...ctx.request.body,
       ...ctx.params,
-      ...ctx.query,
+      ...filterAdapter.adapt(ctx.query)
     };
 
     entity = await service.process(data);

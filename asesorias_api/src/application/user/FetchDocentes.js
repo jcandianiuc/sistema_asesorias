@@ -8,7 +8,7 @@ class FetchDocentes {
   }
 
   process(command) {
-    return this.repository.find(command);
+    return this.repository.get(command);
   }
 }
 

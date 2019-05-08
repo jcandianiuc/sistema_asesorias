@@ -75,7 +75,7 @@ class AlumnoRepository {
   get(filters) {
     const [skip, take] = filters.limit;
 
-    const mySearchPromise = this.find({ ...filters }, { skip, take });
+    const mySearchPromise = this.find({ ...filters }, { skip, take }, ['abstract']);
 
     return new Promise(async (resolve, reject) => {
       if (!(mySearchPromise instanceof Promise)) {
@@ -95,9 +95,9 @@ class AlumnoRepository {
    * Método encargado de encontrar una Alumno por su id
    * @param {string|number} id
    */
-  async byUuidOrFail(id, relations = []) {
+  async byUuidOrFail(id) {
     assertThatIdIsValid(id);
-    const item = (await this.find({ id }, null, relations))[0][0];
+    const item = (await this.find({ id }, null, ['abstract', 'abstract.role']))[0][0];
     assertThatAlumnoIsNotEmpty(item);
 
     return item;

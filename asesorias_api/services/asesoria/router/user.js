@@ -35,7 +35,7 @@ const router = new Router({
   prefix: '/user'
 });
 
-router.get('/login', auth.required, async (ctx, next) => {
+router.get('/login', async (ctx, next) => {
   let response;
 
   try {

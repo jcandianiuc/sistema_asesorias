@@ -10,7 +10,7 @@ class User {
     this.telefono = data.telefono;
     this.sexo = data.sexo;
     this.engine = data.engine;
-    this.authAssignment = data.authAssignment;
+    this.role = data.role;
   }
 
   addName(nombre, paterno, materno) {

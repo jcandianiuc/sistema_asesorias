@@ -16,8 +16,9 @@ class ViewUser {
    * @returns {User}
    */
   async process(command) {
-    const { id } = command;
-    return this.repository.byUuidOrFail(id);
+    const { email, password } = command;
+    const user = this.repository.byEmailOrFail(email);
+    return user;
   }
 
   async find(command) {

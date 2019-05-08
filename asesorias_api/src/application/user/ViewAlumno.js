@@ -32,10 +32,9 @@ class ViewAlumno {
    * @returns {Alumno}
    */
   async process(command) {
-    const { id, relations } = command;
-    const related = (relations.in instanceof Array) ? relations.in : [relations.in]; 
+    const { id } = command;
     assertThatIdIsValid(id);
-    return this.repository.byUuidOrFail(id, related);
+    return this.repository.byUuidOrFail(id);
   }
 }
 

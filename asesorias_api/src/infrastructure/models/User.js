@@ -46,13 +46,17 @@ const User = new EntitySchema({
       nullable: false,
     },
   },
-  // relations: {
-  //   authAssignment: {
-  //     type: 'one-to-one',
-  //     target: 'AuthAssignment',
-  //     joinColumn: true
-  //   }
-  // }
+  relations: {
+    role: {
+      type: 'one-to-one',
+      target: 'AuthAssignment',
+      cascade:true,
+      joinColumn: {
+        name: 'id',
+        referencedColumnName: 'userId',
+      }
+    }
+  }
 });
 
 module.exports = User;

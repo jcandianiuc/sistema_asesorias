@@ -37,6 +37,7 @@ const Alumno = new EntitySchema({
     abstract: {
       type: 'one-to-one',
       target: 'User',
+      cascade: true,
       joinColumn: {
         name: 'id_usuario'
       }

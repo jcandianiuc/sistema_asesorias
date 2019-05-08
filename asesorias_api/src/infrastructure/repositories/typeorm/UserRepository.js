@@ -79,14 +79,14 @@ class UserRepository {
 
   /**
    * Método encargado de encontrar una User por su id
-   * @param {string} id
+   * @param {string} email
    */
-  async byUuidOrFail(id) {
-    assertThatIdIsValid(id);
-    const res = await this.find({ id });
-    assertThatUserIsNotEmpty(res[0]);
+  async byEmailOrFail(email) {
+    // assertThatEmailIsValid(id);
+    const usr = (await this.find({ email }, null, ['role']))[0];
+    assertThatUserIsNotEmpty(usr);
 
-    return res[0];
+    return usr;
   }
 
   /**
@@ -120,8 +120,8 @@ class UserRepository {
    * Método encargado de buscar users en la base de datos.
    * @param {Object} params
    */
-  find(params = {}, limit = {}) {
-    return this.repository.find({ where: { ...params }, ...limit });
+  find(params = {}, limit = {}, relations = []) {
+    return this.repository.find({ where: { ...params }, ...limit, relations });
   }
 }
 

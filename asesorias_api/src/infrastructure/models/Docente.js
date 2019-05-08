@@ -29,13 +29,16 @@ const Docente = new EntitySchema({
       name: 'created_by',
     },
   },
-  // relations: {
-  //   usuario: {
-  //     type: 'one-to-one',
-  //     target: 'User',
-  //     joinColumn: true
-  //   }
-  // }
+  relations: {
+    abstract: {
+      type: 'one-to-one',
+      target: 'User',
+      cascade: true,
+      joinColumn: {
+        name: 'id_usuario'
+      }
+    }
+  }
 });
 
 module.exports = Docente;

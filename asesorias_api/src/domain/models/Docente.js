@@ -5,7 +5,7 @@ class Docente {
     this.idUsuario = data.idUsuario;
     this.createdBy = data.createdBy;
     this.createdAt = data.createdAt;
-    this.usuario = data.usuario;
+    this.abstract = data.abstract;
   }
 
   addAuditData(createdAt, createdBy) {
