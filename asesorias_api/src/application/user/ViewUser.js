@@ -1,3 +1,13 @@
+const { basePath } = global;
+const { polyfill } = require(`${basePath}/helpers`);
+
+function assertThatPasswordIsCorrect(usr, password) {
+  if (!usr.validatePassword(password)) {
+    const err = new Error('La contraseña es incorrecta');
+    err.code = 400;
+    throw err;
+  }
+}
 class ViewUser {
   /**
    * inicializa el repositorio se usara
@@ -17,7 +27,8 @@ class ViewUser {
    */
   async process(command) {
     const { email, password } = command;
-    const user = this.repository.byEmailOrFail(email);
+    const user = await this.repository.byEmailOrFail(email);
+    assertThatPasswordIsCorrect(user, password);
     return user;
   }
 

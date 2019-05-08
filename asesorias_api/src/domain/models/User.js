@@ -1,3 +1,5 @@
+const { basePath } = global;
+const { polyfill } = require(`${basePath}/helpers`);
 
 class User {
   constructor(data = {}) {
@@ -6,11 +8,16 @@ class User {
     this.paterno = data.paterno;
     this.materno = data.materno;
     this.email = data.email;
+    this.password = data.password;
     this.birthday = data.birthday;
     this.telefono = data.telefono;
     this.sexo = data.sexo;
     this.engine = data.engine;
     this.role = data.role;
+  }
+
+  setPassword(password) {
+    this.password = password;
   }
 
   addName(nombre, paterno, materno) {
@@ -29,6 +36,10 @@ class User {
   addAuditData(createdAt, createdBy) {
     this.createdAt = createdAt;
     this.createdBy = createdBy;
+  }
+
+  validatePassword(password) {
+    return (!polyfill.empty(password) && (password === this.password) );
   }
 }
 

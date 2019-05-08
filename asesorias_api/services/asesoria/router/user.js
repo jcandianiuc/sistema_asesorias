@@ -9,6 +9,7 @@ const { TypeOrmSqlClient: db } = require(`${basePath}/config/client`);
 const { ViewUser } = require(`${basePath}/src/application/user`);
 const { UserRepository } = require(`${basePath}/src/infrastructure/repositories/typeorm`);
 
+const { encryptor} =require(`${basePath}/helpers`);
 
 function getJoiFlash(error) {
   let msg = '';

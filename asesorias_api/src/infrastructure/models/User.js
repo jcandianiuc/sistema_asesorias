@@ -2,6 +2,7 @@ const { basePath } = global;
 
 const { EntitySchema } = require('typeorm');
 const { User: UserModel } = require(`${basePath}/src/domain/models`);
+const { encryptor} =require(`${basePath}/helpers`);
 
 const User = new EntitySchema({
   name: 'User',
@@ -28,6 +29,14 @@ const User = new EntitySchema({
     email: {
       type: String,
       nullable: false,
+    },
+    password: {
+      type: String,
+      nullable: false,
+      transformer: {
+        to: encryptor.encrypt,
+        from: encryptor.decrypt,
+      },
     },
     birthday: {
       type: String,
