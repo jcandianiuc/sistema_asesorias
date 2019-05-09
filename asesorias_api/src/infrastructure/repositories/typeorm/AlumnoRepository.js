@@ -65,7 +65,7 @@ class AlumnoRepository {
    */
   create(alumno) {
     assertThatIsAlumno(alumno);
-    return this.persist(alumno);;
+    return this.persist(alumno);
   }
 
   /**

@@ -8,9 +8,13 @@ const AuthAssignment = new EntitySchema({
   tableName: 'auth_assignment',
   target: AuthAssignmentModel,
   columns: {
-    itemName: {
+    id: {
       type: 'integer',
       primary: true,
+      generated: true,
+    },
+    itemName: {
+      type: 'integer',
       nullable: false,
       name: 'item_name',
     },
@@ -23,6 +27,14 @@ const AuthAssignment = new EntitySchema({
       type: String,
       nullable: false,
       name: 'created_at',
+    },
+  },
+  user: {
+    type: 'one-to-one',
+    target: 'User',
+    cascade: true,
+    joinColumn: {
+      name: 'user_id',
     },
   },
 });

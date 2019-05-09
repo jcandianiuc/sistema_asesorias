@@ -62,9 +62,8 @@ const User = new EntitySchema({
       cascade:true,
       joinColumn: {
         name: 'id',
-        referencedColumnName: 'userId',
       },
-      inverseSide:'User'
+      inverseSide: 'user',
     }
   }
 });
