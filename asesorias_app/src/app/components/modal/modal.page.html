@@ -3,44 +3,31 @@
     <ion-item-divider>
         <ion-col size="11">
             <ion-card-header>
-                <ion-card-title> Crear Evento </ion-card-title>
-                <ion-card-subtitle> Tipo de disponibilidad </ion-card-subtitle>
+                <ion-card-title>Crear Evento</ion-card-title>
             </ion-card-header>
         </ion-col>
-        <!-- Here start the card for create en event -->
     </ion-item-divider>
-    <ion-card-subtitle> Seleccionar aula </ion-card-subtitle>
+    <ion-card-subtitle>Locación</ion-card-subtitle>
     <ion-item-divider>
         <ion-grid>
-            <!-- <ion-row justify-content-center>
-                <ion-col size="5">
-                    <ion-list lines="none">
-                        <ion-item *ngFor="let entry of form" no-padding>
-                            <ion-label>{{entry.val}}</ion-label>
-                            <ion-checkbox type="boolean" color="secondary" [(ngModel)]="entry.isChecked"></ion-checkbox>
-                        </ion-item>
+            <ion-row justify-content-center>
+                <ion-col>
+                    <ion-list>
+                        <ion-radio-group (ionChange)="getClassrooms($event)">
+                            <ion-list-header>Seleccionar edificio</ion-list-header>
+                            <ion-item *ngFor="let building of buildings; let i = index;">
+                                <ion-label>{{building.value}}</ion-label>
+                                <ion-radio value="{{building.value}}"></ion-radio>
+                            </ion-item>
+                        </ion-radio-group>
                     </ion-list>
                 </ion-col>
-                <ion-col size="6">
-                    <ion-list lines="none">
-                        <ion-item no-padding>
-                            <ion-label> Edificio</ion-label>
-                            <ion-icon name="arrow-dropdown"></ion-icon>
-                            <ion-datetime displayFormat="HH:mm"></ion-datetime>
-                        </ion-item>
-                        <ion-item no-padding>
-                            <ion-label> Aulas</ion-label>
-                            <ion-icon name="arrow-dropdown"></ion-icon>
-                            <ion-datetime displayFormat="HH:mm"></ion-datetime>
-                        </ion-item>
-                    </ion-list>
-                </ion-col>
-            </ion-row> -->
+            </ion-row>
             <ion-row justify-content-center>
                 <ion-col>
                     <ion-item>
                         <ion-label>Aulas</ion-label>
-                        <ion-select>
+                        <ion-select [(ngModel)]="aula">
                             <ion-select-option *ngFor="let classroom of aulas">
                                 {{classroom['edificio'] + ' ' + classroom['noAsignacion']}}
                             </ion-select-option>
@@ -50,42 +37,30 @@
             </ion-row>
         </ion-grid>
     </ion-item-divider>
-    <ion-card-subtitle> Nota Específica </ion-card-subtitle>
-    <ion-item-divider>
-        <!-- Textarea in an item with a floating label -->
-        <!-- <ion-item alignSelf="center">
-            <ion-label expand="full" position="stacked">Description</ion-label>
-            <ion-textarea></ion-textarea>
-        </ion-item> -->
-        <!-- Inputs with labels -->
-        <ion-col size="11">
-            <ion-item color="light">
-                <ion-label expand="full" position="floating"> Descripción </ion-label>
-                <ion-input></ion-input>
-            </ion-item>
-        </ion-col>
-    </ion-item-divider>
-    <ion-card-subtitle> Estimación de tiempo HH:mm</ion-card-subtitle>
+    <ion-card-subtitle>Agenda</ion-card-subtitle>
     <ion-grid>
         <ion-row justify-content-center>
             <ion-col>
-                <!-- <ion-item no-padding lines="none">
-                        <ion-item-option color="secondary">Inicio
-                            <ion-icon name="arrow-dropdown"></ion-icon>
-                        </ion-item-option>
-                        <ion-datetime displayFormat="HH:mm"></ion-datetime>
-                    </ion-item> -->
+                <ion-item>
+                    <ion-label>Fecha</ion-label>
+                    <ion-icon name="grid"></ion-icon>
+                    <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="fecha"></ion-datetime>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row justify-content-center>
+            <ion-col>
                 <ion-item lines="none">
-                    <ion-label> Inicio</ion-label>
-                    <ion-icon name="arrow-dropdown"></ion-icon>
-                    <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                    <ion-label>Hora de inicio</ion-label>
+                    <ion-icon name="clock"></ion-icon>
+                    <ion-datetime displayFormat="HH:mm" [(ngModel)]="timeInit"></ion-datetime>
                 </ion-item>
             </ion-col>
             <ion-col>
                 <ion-item lines="none">
-                    <ion-label>Fin</ion-label>
-                    <ion-icon name="arrow-dropdown"></ion-icon>
-                    <ion-datetime displayFormat="HH:mm"></ion-datetime>
+                    <ion-label>Hora de fin</ion-label>
+                    <ion-icon name="clock"></ion-icon>
+                    <ion-datetime displayFormat="HH:mm" [(ngModel)]="timeFin"></ion-datetime>
                 </ion-item>
             </ion-col>
         </ion-row>

@@ -10,8 +10,8 @@ export class ClassroomService {
   private url = 'http://localhost:3011/aulas';
   constructor(private http: HttpClient) { }
 
-  getClassrooms(): Observable<any> {
-    return this.http.get(this.url).pipe(
+  getClassrooms(queryParam): Observable<any> {
+    return this.http.get(`${this.url}?${queryParam}`).pipe(
       map((results) => { 
         return results;
       })
