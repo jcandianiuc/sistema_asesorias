@@ -22,9 +22,9 @@ class CreateDocente {
     user.addAuditData(abstract.createdAt, abstract.createdBy);
     user.setPassword(abstract.password);
 
-    this.service({user, role:'Docente'});
-    entity.usuario = user;
-
+    user.addRole('Docente');
+    entity.abstract = user;
+    
     return this.repository.create(entity);
   }
 }

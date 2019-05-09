@@ -14,9 +14,10 @@ const Docente = new EntitySchema({
       generated: true,
     },
     idUsuario: {
-      type: String,
+      type: Number,
       nullable: false,
       name: 'id_usuario',
+      unsigned: true,
     },
     createdAt: {
       type: String,
