@@ -96,7 +96,7 @@ class DocenteRepository {
    */
   async byUuidOrFail(id) {
     assertThatIdIsValid(id);
-    const item = await this.find({ id }, null, ['abstract', 'abstract.role'])[0][0];
+    const item = (await this.find({ id }, null, ['abstract', 'abstract.roles']))[0];
     assertThatDocenteIsNotEmpty(item);
 
     return item;

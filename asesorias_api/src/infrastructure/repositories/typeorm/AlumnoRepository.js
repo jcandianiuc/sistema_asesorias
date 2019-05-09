@@ -97,7 +97,7 @@ class AlumnoRepository {
    */
   async byUuidOrFail(id) {
     assertThatIdIsValid(id);
-    const item = (await this.find({ id }, null, ['abstract', 'abstract.role']))[0][0];
+    const item = (await this.find({ id }, null, ['abstract', 'abstract.roles']))[0];
     assertThatAlumnoIsNotEmpty(item);
 
     return item;
