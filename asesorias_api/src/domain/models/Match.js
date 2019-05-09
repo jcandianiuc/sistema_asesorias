@@ -7,8 +7,8 @@ class Match {
     this.horas = data.horas;
     this.fecha = data.fecha;
     this.extras = data.extras;
-    this.createdAt = data.createdAt;
-    this.createdBy = data.createdBy;
+    // this.createdAt = data.createdAt;
+    // this.createdBy = data.createdBy;
   }
 
   addLink(idAlumno, idDocente, idAula) {

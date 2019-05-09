@@ -3,6 +3,8 @@ const AlumnoRepository = require('./AlumnoRepository');
 const DocenteRepository = require('./DocenteRepository');
 const AulaRepository = require('./AulaRepository');
 const UserRepository = require('./UserRepository');
+const MatchRepository = require('./MatchRepository');
+const ProgramaEducativoRepository = require('./ProgramaEducativoRepository');
 
 module.exports = {
   AvailabilityRepository,
@@ -10,4 +12,6 @@ module.exports = {
   AulaRepository,
   AlumnoRepository,
   UserRepository,
+  MatchRepository,
+  ProgramaEducativoRepository,
 }

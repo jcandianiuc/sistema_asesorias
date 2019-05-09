@@ -41,16 +41,16 @@ const Match = new EntitySchema({
       type: String,
       nullable: false
     },
-    createdAt: {
-      type: Date,
-      nullable: false,
-      name: 'created_at',
-    },
-    createdBy: {
-      type: String,
-      nullable: false,
-      name: 'created_by',
-    },
+    // createdAt: {
+    //   type: Date,
+    //   nullable: false,
+    //   name: 'created_at',
+    // },
+    // createdBy: {
+    //   type: String,
+    //   nullable: false,
+    //   name: 'created_by',
+    // },
   }
 });
 

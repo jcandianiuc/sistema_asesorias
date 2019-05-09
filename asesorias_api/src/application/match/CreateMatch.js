@@ -13,7 +13,7 @@ class CreateMatch {
     const entity = new Match
     entity.addLink(command.idAlumno, command.idDocente, command.idAula);
     entity.addDate(command.fecha, command.horas, command.extras);
-    entity.addAuditData(command.createdAt, command.createdBy);
+    // entity.addAuditData(command.createdAt, command.createdBy);
 
     return this.repository.create(entity);
   }
