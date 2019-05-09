@@ -6,9 +6,8 @@ class CreateDocente {
   /**
    * @param {DocenteRepository} repository
    */
-  constructor(repository, service) {
+  constructor(repository) {
     this.repository = repository;
-    this.service = service;
   }
 
   process(command) {

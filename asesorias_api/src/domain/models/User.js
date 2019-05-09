@@ -1,5 +1,6 @@
 const { basePath } = global;
 const { polyfill } = require(`${basePath}/helpers`);
+const AuthAssignment = require('./AuthAssignment');
 
 class User {
   constructor(data = {}) {
@@ -13,7 +14,7 @@ class User {
     this.telefono = data.telefono;
     this.sexo = data.sexo;
     this.engine = data.engine;
-    this.role = data.role;
+    this.roles = data.roles;
   }
 
   setPassword(password) {
@@ -36,6 +37,15 @@ class User {
   addAuditData(createdAt, createdBy) {
     this.createdAt = createdAt;
     this.createdBy = createdBy;
+  }
+
+  addRole(role) {
+    if (!(this.roles instanceof Array)) {
+      this.roles = [];
+    }
+    const authAssignment = new AuthAssignment();
+    authAssignment.addRole(role);
+    this.roles.push(authAssignment);
   }
 
   validatePassword(password) {

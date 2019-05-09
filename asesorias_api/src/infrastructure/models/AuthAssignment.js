@@ -29,12 +29,13 @@ const AuthAssignment = new EntitySchema({
       name: 'created_at',
     },
   },
-  user: {
-    type: 'one-to-one',
-    target: 'User',
-    cascade: true,
-    joinColumn: {
-      name: 'user_id',
+  relations: {
+    user: {
+      type: 'many-to-one',
+      target: 'User',
+      joinColumn: {
+        name: 'user_id',
+      },
     },
   },
 });

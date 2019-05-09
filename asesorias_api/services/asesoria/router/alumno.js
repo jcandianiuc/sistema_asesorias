@@ -9,7 +9,6 @@ const { FetchAlumnos, ViewAlumno, CreateAlumno } = require(`${basePath}/src/appl
 const { AlumnoRepository } = require(`${basePath}/src/infrastructure/repositories/typeorm`);
 
 const { polyfill, filterAdapter } = require(`${basePath}/helpers`);
-const { AffiliationService } = require(`${basePath}/src/domain`);
 
 function getJoiFlash(error) {
   let msg = '';
@@ -107,8 +106,7 @@ router.post('/', koaBody(), async function (ctx, next) {
 
   try {
     const repository = new AlumnoRepository(db);
-    const affiliationService = new AffiliationService;
-    const service = new CreateAlumno(repository, affiliationService);
+    const service = new CreateAlumno(repository);
     const disponbilidad = await service.process(data);
 
     code = 201;

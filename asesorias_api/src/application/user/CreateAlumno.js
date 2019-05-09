@@ -6,9 +6,8 @@ class CreateAlumno {
   /**
    * @param {AlumnoRepository} repository
    */
-  constructor(repository, service) {
+  constructor(repository) {
     this.repository = repository;
-    this.service = service;
   }
 
   process(command) {
@@ -25,7 +24,7 @@ class CreateAlumno {
     user.setPassword(abstract.password);
     user.addAuditData(command.createdAt, command.createdBy);
 
-    this.service.process({user, role:'Alumno'});
+    user.addRole('Alumno');
     entity.abstract = user;
 
     return this.repository.create(entity);

@@ -12,8 +12,6 @@ const {
   FetchDocentes,
 } = require(`${basePath}/src/application/user`);
 
-const { AffiliationService } = require(`${basePath}/src/domain`);
-
 const { polyfill, filterAdapter } = require(`${basePath}/helpers`);
 
 function getJoiFlash(error) {
@@ -121,8 +119,7 @@ router.post('/', koaBody(), async function (ctx, next) {
   try {
     // TODO: Agregar validadores
     const repository = new DocenteRepository(db);
-    const affiliationService = new AffiliationService;
-    const service = new CreateDocente(repository, affiliationService);
+    const service = new CreateDocente(repository);
     const docente = await service.process(command);
 
     code = 201;

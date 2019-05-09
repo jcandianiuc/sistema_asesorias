@@ -56,10 +56,10 @@ const User = new EntitySchema({
     },
   },
   relations: {
-    role: {
-      type: 'one-to-one',
+    roles: {
+      type: 'one-to-many',
       target: 'AuthAssignment',
-      cascade:true,
+      cascade: true,
       joinColumn: {
         name: 'id',
       },
