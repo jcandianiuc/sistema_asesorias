@@ -19,6 +19,7 @@
     <ion-item>
         <ion-input [(ngModel)]="value" clearInput></ion-input>
     </ion-item>
+    <!-- Card Avalability Profesor-->
     <ion-card id="cardavalability" lines="none">
         <!-- <ion-item-sliding> -->
         <ion-item-divider lines="none" class="activated">
@@ -42,8 +43,10 @@
                             <br>
                             <ion-label>
                                 <ion-icon name="pin" slot="start"></ion-icon>
-                                <strong>Aula: </strong>
-                                <span><p>Laboratorio mecánica</p></span>
+                                <strong>Lugar: </strong>
+                                <span><p>Edificio A</p></span>
+                                <span><p>Aula 1</p></span>
+                                <span><p>Planta baja</p></span>
                             </ion-label>
                             <br>
                             <ion-label>
@@ -70,7 +73,6 @@
                                 <ion-icon name="stopwatch" slot="start"></ion-icon>
                                 <strong> Fin: </strong>
                                 <span> HH:mm</span>
-
                             </ion-label>
                         </ion-list>
                     </ion-col>
@@ -95,12 +97,91 @@
             </ion-item-options>
         </ion-item-sliding> -->
     </ion-card>
-    <!-- Here end the card for create en event -->
+    <!-- Here end the card for create an event -->
+    <!-- Card Avalability Profesor-->
+    <ion-card id="cardavalability" lines="none">
+        <!-- <ion-item-sliding> -->
+        <ion-item-divider lines="none" class="activated">
+            <ion-icon *ngIf="cerrar" color="green" name="radio-button-on"></ion-icon>
+            <ion-label *ngIf="cerrar" color="green"><b>Disponible</b></ion-label>
+        </ion-item-divider>
+        <ion-item-divider>
+            <ion-grid no-padding>
+                <ion-icon name="person" slot="start"></ion-icon>
+                <br>
+                <ion-icon name="pin" slot="start"></ion-icon>
+                <ion-row align-items-start>
+                    <ion-col>
+                        <ion-list>
+                            <ion-label>
+                                <ion-icon name="person" slot="start"></ion-icon>
+                                <strong> 
+                                            Profesor: </strong>
+                                <span><p>Patricia Granados</p></span>
+                            </ion-label>
+                            <br>
+                            <ion-label>
+                                <ion-icon name="pin" slot="start"></ion-icon>
+                                <strong>Lugar: </strong>
+                                <span><p>Edificio A</p></span>
+                                <span><p>Aula 1</p></span>
+                                <span><p>Planta baja</p></span>
+                            </ion-label>
+                            <br>
+                            <ion-label>
+                                <ion-icon name="unlock" slot="start"></ion-icon>
+                                <strong>Tipo: </strong>
+                                <span>General</span>
+                            </ion-label>
+                        </ion-list>
+                    </ion-col>
+                    <ion-col>
+                        <ion-list class="marginr">
+                            <ion-label align-self-center>
+                                <ion-icon name="clock" slot="start">
+                                </ion-icon><strong> Horario</strong>
+                            </ion-label>
+                            <br>
+                            <ion-label class="marginl">
+                                <ion-icon name="timer" slot="start"></ion-icon>
+                                <strong> Inicio: </strong>
+                                <span> HH:mm</span>
+                            </ion-label>
+                            <br>
+                            <ion-label>
+                                <ion-icon name="stopwatch" slot="start"></ion-icon>
+                                <strong> Fin: </strong>
+                                <span> HH:mm</span>
+                            </ion-label>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item-divider>
+        <ion-card-content color="white">
+            <ion-row>
+                <ion-col align-self-center>
+                    <ion-icon name="bookmarks"></ion-icon>
+                    <!-- <a (click)="openPopover($event)"> {{ value }} Visitas </a> -->
+                </ion-col>
+                <ion-item lines="none">
+                    <ion-label class="label-fin"><b>Suscribirse</b></ion-label>
+                    <ion-toggle color="danger"></ion-toggle>
+                </ion-item>
+            </ion-row>
+        </ion-card-content>
+        <!-- <ion-item-options side="end">
+                        <ion-item-option color="danger" (click)="delete()">
+                            <ion-icon slot="icon-only" name="trash"></ion-icon>
+                        </ion-item-option>
+                    </ion-item-options>
+                </ion-item-sliding> -->
+    </ion-card>
+    <!-- Card for student-->
     <!-- fab placed to the top end on add button  -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button color="secondary" (click)="openModal()">
             <ion-icon color="light" name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>
-
 </ion-content>
