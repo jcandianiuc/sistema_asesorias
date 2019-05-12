@@ -83,7 +83,7 @@ class UserRepository {
    */
   async byEmailOrFail(email) {
     // assertThatEmailIsValid(id);
-    const usr = (await this.find({ email }, null, ['role']))[0];
+    const usr = (await this.find({ email }, null, ['roles']))[0];
     assertThatUserIsNotEmpty(usr);
 
     return usr;
