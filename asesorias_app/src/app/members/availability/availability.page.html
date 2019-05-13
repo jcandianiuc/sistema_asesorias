@@ -20,7 +20,7 @@
         <ion-input [(ngModel)]="value" clearInput></ion-input>
     </ion-item>
     <!-- Card Avalability Profesor-->
-    <ion-card id="cardavalability" lines="none">
+    <ion-card id="cardavalability" lines="none" *ngFor="let event of events">
         <!-- <ion-item-sliding> -->
         <ion-item-divider lines="none" class="activated">
             <ion-icon *ngIf="cerrar" color="green" name="radio-button-on"></ion-icon>
@@ -36,43 +36,56 @@
                         <ion-list>
                             <ion-label>
                                 <ion-icon name="person" slot="start"></ion-icon>
-                                <strong> 
-                                    Profesor: </strong>
-                                <span><p>Patricia Granados</p></span>
+                                <strong>Profesor:</strong>
+                                <span>
+                                    <p>{{user['nombre']}} {{user['paterno']}}</p>
+                                </span>
                             </ion-label>
                             <br>
                             <ion-label>
                                 <ion-icon name="pin" slot="start"></ion-icon>
                                 <strong>Lugar: </strong>
-                                <span><p>Edificio A</p></span>
-                                <span><p>Aula 1</p></span>
-                                <span><p>Planta baja</p></span>
+                                <span>
+                                    <p>Edificio A</p>
+                                </span>
+                                <span>
+                                    <p>Aula 1</p>
+                                </span>
+                                <span>
+                                    <p>Planta baja</p>
+                                </span>
                             </ion-label>
                             <br>
                             <ion-label>
                                 <ion-icon name="unlock" slot="start"></ion-icon>
-                                <strong>Tipo: </strong>
-                                <span>General</span>
+                                <strong>Notas: </strong>
+                                <span>{{event.tipoDisponibilidad}}</span>
                             </ion-label>
                         </ion-list>
                     </ion-col>
                     <ion-col>
                         <ion-list class="marginr">
                             <ion-label align-self-center>
+                                <ion-icon name="calendar" slot="start"></ion-icon>
+                                <strong>Fecha: </strong>
+                                <span>{{event.fecha}}</span>
+                            </ion-label>
+                            <br>
+                            <ion-label align-self-center>
                                 <ion-icon name="clock" slot="start">
-                                </ion-icon><strong> Horario</strong>
+                                </ion-icon><strong>Horario</strong>
                             </ion-label>
                             <br>
                             <ion-label class="marginl">
                                 <ion-icon name="timer" slot="start"></ion-icon>
-                                <strong> Inicio: </strong>
-                                <span> HH:mm</span>
+                                <strong>Inicio: </strong>
+                                <span>{{event.timeInit}}</span>
                             </ion-label>
                             <br>
                             <ion-label>
                                 <ion-icon name="stopwatch" slot="start"></ion-icon>
-                                <strong> Fin: </strong>
-                                <span> HH:mm</span>
+                                <strong>Fin: </strong>
+                                <span>{{event.timeFin}}</span>
                             </ion-label>
                         </ion-list>
                     </ion-col>
@@ -97,10 +110,7 @@
             </ion-item-options>
         </ion-item-sliding> -->
     </ion-card>
-    <!-- Here end the card for create an event -->
-    <!-- Card Avalability Profesor-->
-    <ion-card id="cardavalability" lines="none">
-        <!-- <ion-item-sliding> -->
+    <!-- <ion-card id="cardavalability" lines="none">
         <ion-item-divider lines="none" class="activated">
             <ion-icon *ngIf="cerrar" color="green" name="radio-button-on"></ion-icon>
             <ion-label *ngIf="cerrar" color="green"><b>Disponible</b></ion-label>
@@ -162,7 +172,6 @@
             <ion-row>
                 <ion-col align-self-center>
                     <ion-icon name="bookmarks"></ion-icon>
-                    <!-- <a (click)="openPopover($event)"> {{ value }} Visitas </a> -->
                 </ion-col>
                 <ion-item lines="none">
                     <ion-label class="label-fin"><b>Suscribirse</b></ion-label>
@@ -170,15 +179,7 @@
                 </ion-item>
             </ion-row>
         </ion-card-content>
-        <!-- <ion-item-options side="end">
-                        <ion-item-option color="danger" (click)="delete()">
-                            <ion-icon slot="icon-only" name="trash"></ion-icon>
-                        </ion-item-option>
-                    </ion-item-options>
-                </ion-item-sliding> -->
-    </ion-card>
-    <!-- Card for student-->
-    <!-- fab placed to the top end on add button  -->
+    </ion-card> -->
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
         <ion-fab-button color="secondary" (click)="openModal()">
             <ion-icon color="light" name="add"></ion-icon>

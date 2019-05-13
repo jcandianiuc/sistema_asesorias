@@ -1,8 +1,9 @@
 import { PopoverPage } from './../../components/popover/popover.page';
 import { ModalPage } from './../../components/modal/modal.page';
-import { AvailabilityService, ActiveEvent } from './availability.service';
+import { AvailabilityService } from 'src/app/services/availability.service';
 import { Component, OnInit } from '@angular/core';
 import { MenuController, NavParams, PopoverController, NavController, ModalController } from '@ionic/angular';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-availability',
@@ -10,12 +11,14 @@ import { MenuController, NavParams, PopoverController, NavController, ModalContr
   styleUrls: ['./availability.page.scss'],
 })
 export class AvailabilityPage implements OnInit {
-  activeEvents: ActiveEvent[] = [];
+  results: Observable<any>
+  events: any[] = [];
+  user: Object = {};
   value = 0;
   passedIs = null;
   public cerrar = false;
 
-  constructor(private menuCtrl: MenuController, private service: AvailabilityService,
+  constructor(private menuCtrl: MenuController, private availabilityService: AvailabilityService,
               private nav: NavController, private modalcontroler: ModalController, private popoverControler: PopoverController) { }
 
   async ngOnInit() {
@@ -24,7 +27,13 @@ export class AvailabilityPage implements OnInit {
   }
 
   async getActiveEvents() {
-    this.activeEvents = await this.service.getActiveEvents();
+    this.results = this.availabilityService.getAvailabilities();
+    this.results.subscribe((res) => {
+      this.events = res.events;
+      res.user.then((val) =>{
+        this.user = val;
+      })
+    });
   }
 
   pushPage() {
