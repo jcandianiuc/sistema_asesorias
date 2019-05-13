@@ -2,12 +2,12 @@
     <ion-toolbar color="secondary">
         <ion-back-button slot="start" defaultHref="/members/menu"></ion-back-button>
         <ion-title>Consultas</ion-title>
-        <ion-buttons slot="end">
+        <!-- <ion-buttons slot="end">
             <ion-button (click)="automaticClose = !automaticClose">
                 <ion-icon slot="icon-only" name="close" *ngIf="automaticClose"></ion-icon>
                 <ion-icon slot="icon-only" name="resize" *ngIf="!automaticClose"></ion-icon>
             </ion-button>
-        </ion-buttons>
+        </ion-buttons> -->
     </ion-toolbar>
 </ion-header>
 <ion-content padding>
@@ -43,14 +43,14 @@
                                     <p class="coordinator">{{ child.Coordinador }}</p>
                                 </ion-text>
                             </ion-label>
-                            <ion-button fill="outline" color="secondary" slot="end" (click)="buyItem(child)">Ver</ion-button>
+                            <ion-button fill="outline" color="secondary" slot="end" (click)="linkItem(child)"> Ver </ion-button>
                         </ion-item>
                         <!-- Test for third level -->
                         <ion-list *ngIf="child.children && child.open">
                             <ion-item *ngFor="let item of child.children" detail-non class="child-item" text-wrap>
                             </ion-item>
                             <p>{{ item.name }}</p>
-                            <ion-button ion-button outline item-end (click)="buyItem(item)">{{ child.coodinador }}
+                            <ion-button ion-button outline item-end (click)="linkItem(item)">{{ child.coodinador }}
                             </ion-button>
                         </ion-list>
                     </ion-list-header>

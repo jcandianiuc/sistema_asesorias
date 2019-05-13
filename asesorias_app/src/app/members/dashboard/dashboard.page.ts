@@ -21,7 +21,7 @@ export class DashboardPage implements OnInit {
       .subscribe(data => { // data is already a JSON object
         // tslint:disable-next-line:no-string-literal
         this.information = data['items'];
-        // this.information[0].open = true; // Función por trabajar
+        this.information[0].open = false; // Función por trabajar
       });
   }
 
@@ -42,8 +42,10 @@ export class DashboardPage implements OnInit {
   }
 
   toggleItem(i, j) {
-    this.information[i].children[j].open = !this.information[i].children[j].open;
+    this.information[i].children[j].open = !this.information[i].child[j].open;
   }
 
-  buyItem() {}
+  linkItem() {
+    // window.open(item.link);
+  }
 }

@@ -5,27 +5,32 @@
             "children": [{
                     "name": "Innovación Empresarial",
                     "information": "Edificio A",
-                    "Coordinador": "Elena Marco"
+                    "Coordinador": "Elena Marco",
+                    "link": "http://www.unicaribe.mx/licenciatura/innovacion2018"
                 },
                 {
                     "name": "Gastronomía",
                     "information": "Edificio c",
-                    "Coordinador": "Omar Dante"
+                    "Coordinador": "Omar Dante",
+                    "link": "http://www.unicaribe.mx/licenciatura/gastronomia2018"
                 },
                 {
                     "name": "Negocios Internacionales",
                     "information": "Edificio A",
-                    "Coordinador": "Abelardo Cázares"
+                    "Coordinador": "Abelardo Cázares",
+                    "link": "http://www.unicaribe.mx/licenciatura/negocios2018"
                 },
                 {
                     "name": "Turismo sustentable y Gestión Hotelera",
                     "information": "Edificio D",
-                    "Coordinador": "Bladimir Salazar"
+                    "Coordinador": "Bladimir Salazar",
+                    "link": "http://www.unicaribe.mx/licenciatura/turismo2018"
                 },
                 {
                     "name": "Turismo Alternativo y Gestión del Patrimonio",
                     "information": "Edificio D",
-                    "Coordinador": "Bladimir Salazar"
+                    "Coordinador": "Bladimir Salazar",
+                    "link": "http://www.unicaribe.mx/licenciatura/turismo-alternativo"
                 }
 
             ]
@@ -36,22 +41,28 @@
             "children": [{
                     "name": "Industrial",
                     "information": "Edificio Ingenierías",
-                    "Coordinador": "Elena Marco"
+                    "Coordinador": "Elena Marco",
+                    "link": "http://www.unicaribe.mx/licenciatura/industrial2018"
+
                 },
                 {
                     "name": "Datos e Inteligencia Organizacional",
                     "information": "Edificio B",
-                    "Coordinador": "Omar Dante"
+                    "Coordinador": "Omar Dante",
+                    "link": "http://www.unicaribe.mx/licenciatura/ingenieria-datos-inteligencia-organizacional"
                 },
                 {
                     "name": "Logística y Cadena de Suministro",
                     "information": "Edificio C",
-                    "Coordinador": "Abelardo Cázares"
+                    "Coordinador": "Abelardo Cázares",
+                    "link": "http://www.unicaribe.mx/licenciatura/logistica2018"
                 },
                 {
                     "name": "Ambiental",
                     "information": "Edificio C",
-                    "Coordinador": "Bladimir Salazar"
+                    "Coordinador": "Bladimir Salazar",
+                    "link": "http://www.unicaribe.mx/licenciatura/ambiental"
+
                 }
             ]
 
@@ -62,32 +73,44 @@
             "children": [{
                     "name": "Visualización de la información ",
                     "information": "Edificio Ingenierías",
-                    "Coordinador": "Elena Marco"
+                    "Coordinador": "Elena Marco",
+                    "link": "http://www.unicaribe.mx/pagina/posgrados?p=visualizacion"
+
                 },
                 {
                     "name": "Innovación y Gestión del Aprendizaje",
                     "information": "Edificio B",
-                    "Coordinador": "Omar Dante"
+                    "Coordinador": "Omar Dante",
+                    "link": "http://www.unicaribe.mx/pagina/posgrados?p=innovacion"
+
                 },
                 {
                     "name": "Logística y Cadena de Suministro",
                     "information": "Edificio C",
-                    "Coordinador": "Abelardo Cázares"
+                    "Coordinador": "Abelardo Cázares",
+                    "link": "http://www.unicaribe.mx/pagina/posgrados?p=logistica"
+
                 },
                 {
                     "name": "Negocios Electrónicos",
                     "information": "Edificio C",
-                    "Coordinador": "Bladimir Salazar"
+                    "Coordinador": "Bladimir Salazar",
+                    "link": "http://www.unicaribe.mx/pagina/posgrados?p=negocios"
+
                 },
                 {
                     "name": "Planeación turística y Sustentables",
                     "information": "Edificio A",
-                    "Coordinador": "Alberto Krauze"
+                    "Coordinador": "Alberto Krauze",
+                    "link": "http://www.unicaribe.mx/pagina/posgrados?p=planeacion"
+
                 },
                 {
                     "name": "Urbanismo Sustentable y Bioclimática",
                     "information": "Edificio A",
-                    "Coordinador": "Frida Ibarra"
+                    "Coordinador": "Frida Ibarra",
+                    "link": "http://www.unicaribe.mx/pagina/posgrados?p=urbanismo"
+
                 }
             ]
 

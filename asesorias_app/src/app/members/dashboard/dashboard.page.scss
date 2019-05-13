@@ -5,6 +5,8 @@ ion-list {
         text-align: left;
         font-weight: bold;
         outline: none !important;
+        //background-color: #19a0a0;
+        //backdroundcolor: 
         &:active,
         &:focus {
             outline: none !important;
@@ -17,6 +19,7 @@ ion-list {
 
 .accordion-list {
     background: color(red);
+    margin-top: 20px;
 }
 
 .section {

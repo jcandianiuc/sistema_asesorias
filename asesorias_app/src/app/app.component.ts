@@ -6,6 +6,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AutenticationService } from './services/autentication.service';
 import { Router, RouterEvent } from '@angular/router';
+import { timer } from 'rxjs/internal/observable/timer';
+
+
 
 @Component({
   selector: 'app-root',
@@ -33,6 +36,7 @@ export class AppComponent {
   ];
 
   selectedPath = '';
+   showSplash = true;
 
   constructor(
     private authService: AutenticationService,
@@ -55,9 +59,10 @@ export class AppComponent {
 
   initializeApp() {
     this.menuCtrl.enable(false, 'menu1');
+    this.splashScreen.hide();
     this.platform.ready().then(() => {
+      this.splashScreen.hide();
       this.statusBar.styleDefault();
-      this.splashScreen.show(); // hide()
       this.authService.AutenticationService.subscribe( state => {
         console.log('Auth changed: ', state);
         if (state) {
@@ -67,6 +72,7 @@ export class AppComponent {
           this.menuCtrl.enable(false);
 
         }
+        timer(3000).subscribe(() => this.showSplash = false);
       });
     });
   }
