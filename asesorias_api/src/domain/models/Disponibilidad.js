@@ -3,6 +3,7 @@ class Disponibilidad {
     this.id = data.id;
     this.idUsuario = data.idUsuario;
     this.fecha = data.fecha;
+    this.status = data.status;
     this.tipoDisponibilidad = data.tipoDisponibilidad;
     this.timeInit = data.timeInit;
     this.timeFin = data.timeFin;

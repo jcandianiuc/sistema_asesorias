@@ -23,6 +23,15 @@ const Disponibilidad = new EntitySchema({
       type: Date,
       nullable: false,
     },
+    status: {
+      type: 'enum',
+      nullable: false,
+      enum: [
+        'on',
+        'off',
+      ],
+      default: 'on',
+    },
     tipoDisponibilidad: {
       type: String,
       nullable: false,
