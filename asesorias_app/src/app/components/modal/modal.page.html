@@ -28,7 +28,7 @@
                     <ion-item>
                         <ion-label>Aulas</ion-label>
                         <ion-select [(ngModel)]="aula">
-                            <ion-select-option *ngFor="let classroom of aulas">
+                            <ion-select-option *ngFor="let classroom of aulas" value="{{classroom['noAsignacion']}}">
                                 {{classroom['edificio'] + ' ' + classroom['noAsignacion']}}
                             </ion-select-option>
                         </ion-select>
@@ -61,6 +61,17 @@
                     <ion-label>Hora de fin</ion-label>
                     <ion-icon name="clock"></ion-icon>
                     <ion-datetime displayFormat="HH:mm" [(ngModel)]="timeFin"></ion-datetime>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-card-subtitle>Descripción</ion-card-subtitle>
+    <ion-grid>
+        <ion-row justify-content-center>
+            <ion-col>
+                <ion-item>
+                    <ion-label>Notas adicionales</ion-label>
+                    <ion-textarea [(ngModel)]="tipoDisponibilidad"></ion-textarea>
                 </ion-item>
             </ion-col>
         </ion-row>

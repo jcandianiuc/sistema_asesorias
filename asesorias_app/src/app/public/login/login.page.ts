@@ -11,8 +11,9 @@ import { Observable } from 'rxjs';
 })
 
 export class LoginPage implements OnInit {
-  private username: string;
+  private email: string;
   private password: string;
+  private credentials: Observable<any>;
 
   constructor(public menuCtrl: MenuController, private authService: AutenticationService, private nav: NavController, private userService: UserService) {}
   ngOnInit() {
@@ -20,11 +21,13 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    const { username, password } = this;
-    /* this.authService.login(username, password).subscribe((res) => {
-      console.log(res);
-    }); */
-    this.authService.login(username, password);
+    const { email, password } = this;
+
+    this.credentials = this.authService.login(email, password);
+    this.credentials.subscribe((res) => {
+      const { data } = res;
+      console.log(data);
+    });
   }
 
   ionViewDidLeave() {
